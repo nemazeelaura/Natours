@@ -1,0 +1,55 @@
+/* 
+universal selector global reset
+*/
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit; 
+}
+
+/* 
+defines what 1 rem is
+set font size in html to 10px makes rem easy... make 100% would be 16px 62.5% makes it 10px for 100% view on browser
+*/
+/*html {
+	font-size: 100%;
+}*/
+html {
+	font-size: 62.5%; /* 1 rem = 10px   10px/16px = 62.5% */
+
+	@include respond(tab-land) {
+		font-size: 56.25%;  /* width < 1200? 1rem = 9px, 9/16 = 56.25% */
+	}
+
+	@include respond(tab-port) {
+		font-size: 50%;   /*  width < 900? 1rem = 8px, 8/16 = 50% */
+	}
+
+	@include respond(big-desktop) {
+		font-size: 75%; /* 1rem = 12px, 12/16 = 75% */
+	}
+}
+/* 
+always set font family universally in the body
+*/
+body {
+	box-sizing: border-box;
+	padding: 3rem;
+
+	@include respond(tab-port) {
+		padding: 0;
+	}
+}
+
+::selection {
+	background-color: $color-primary;
+	color: white;
+}
+
+
+
+
+
+
